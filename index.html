@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Trabalho 1 - Métodos Numéricos</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h2>Calculadora de Métodos Numéricos (WASM + C++)</h2>
+    
+    <div>
+        <label>Valor de 'a':</label>
+        <input type="number" id="input_a" value="1">
+    </div>
+    <div>
+        <label>Chute inicial (d0):</label>
+        <input type="number" id="input_d0" value="0.5">
+    </div>
+    <div>
+        <label>Precisão (e):</label>
+        <input type="number" id="input_e" value="0.0001">
+    </div>
+
+    <button id="btn_calcular">Calcular</button>
+
+    <hr>
+
+    <h3>Resultados</h3>
+    <table id="tabela_resultados">
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Raiz (d)</th>
+                <th>Iterações</th>
+                <th>Erro Final</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Newton-Raphson</td>
+                <td id="nr_raiz">...</td>
+                <td id="nr_iter">...</td>
+                <td id="nr_erro">...</td>
+                <td id="nr_status">...</td>
+            </tr>
+            <tr>
+                <td>Newton Modificado</td>
+                <td id="nm_raiz">...</td>
+                <td id="nm_iter">...</td>
+                <td id="nm_erro">...</td>
+                <td id="nm_status">...</td>
+            </tr>
+            <tr>
+                <td>Secante (d1=0.6)</td>
+                <td id="sec_raiz">...</td>
+                <td id="sec_iter">...</td>
+                <td id="sec_erro">...</td>
+                <td id="sec_status">...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="trabalho1.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

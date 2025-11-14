@@ -1,0 +1,9 @@
+# Pasta do Emscripten SDK
+emsdk/
+
+# Arquivos gerados pelo Emscripten
+trabalho1.js
+trabalho1.wasm
+
+# Pasta de configurações do VSCode
+.vscode/
