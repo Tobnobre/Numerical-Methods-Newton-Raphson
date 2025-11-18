@@ -3,8 +3,8 @@ Module.onRuntimeInitialized = () => {
 
     // 1. "Importa" as funções C++ que exportamos.
     // Module.cwrap('nome_js', 'tipo_retorno', ['tipo_arg1', 'tipo_arg2', ...])
-    const calcNR = Module.cwrap('calcularNewtonRaphson', 'string', ['number', 'number', 'number']);
-    const calcNM = Module.cwrap('calcularNewtonModificado', 'string', ['number', 'number', 'number']);
+    const calcNR = Module.cwrap('calcularNewtonRaphson', 'string', ['number', 'number', 'number', 'number']);
+    const calcNM = Module.cwrap('calcularNewtonModificado', 'string', ['number', 'number', 'number', 'number']);
     const calcSec = Module.cwrap('calcularSecante', 'string', ['number', 'number', 'number', 'number']);
 
     // 2. Pega uma referência ao botão de calcular
@@ -16,23 +16,39 @@ Module.onRuntimeInitialized = () => {
         const a = parseFloat(document.getElementById('input_a').value);
         const d0 = parseFloat(document.getElementById('input_d0').value);
         const e = parseFloat(document.getElementById('input_e').value);
-        const d1 = 0.6; // Valor fixo para o Secante, como no seu 'main'
+        const maxIterInput = parseFloat(document.getElementById('input_maxiter').value);
+
+        const maxIter = (!isNaN(maxIterInput) && maxIterInput >= 1) ? maxIterInput : 1000;
+
+        //Verifica as entradas de dados
+        if (isNaN(a) || isNaN(d0) || isNaN(e)) {
+            alert("Por favor, preencha todos os campos com valores numéricos válidos.");
+            return;
+        }
         
+        // Verifica se a precisão é positiva
+        if (e <= 0) {
+            alert("A precisão deve ser um valor positivo.");
+            return;
+        }
+
         // --- Processa Newton-Raphson ---
         // 5. CHAMA A FUNÇÃO C++!
-        const json_nr = calcNR(a, d0, e);
+        const json_nr = calcNR(a, d0, e, maxIter);
         // 6. O C++ retornou uma string JSON. Nós a convertemos para um objeto JS.
         const res_nr = JSON.parse(json_nr);
+
+        
         // 7. Coloca os resultados na tabela HTML
         atualizarTabela('nr', res_nr);
         
         // --- Processa Newton Modificado ---
-        const json_nm = calcNM(a, d0, e);
+        const json_nm = calcNM(a, d0, e, maxIter);
         const res_nm = JSON.parse(json_nm);
         atualizarTabela('nm', res_nm);
 
         // --- Processa Secante ---
-        const json_sec = calcSec(a, d0, d1, e);
+        const json_sec = calcSec(a, d0, e, maxIter);
         const res_sec = JSON.parse(json_sec);
         atualizarTabela('sec', res_sec);
     });
