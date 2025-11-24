@@ -18,8 +18,8 @@
                 <h2>Parâmetros de Entrada</h2>
                 <form class="input-form">
                     <div class="input-group">
-                        <label for="input_a">Valor de 'a':</label>
-                        <input type="number" id="input_a" value="1" step="any">
+                        <label for="input_a">Valores de 'a' (use ; para separar):</label>
+                        <input type="text" id="input_a" value="1; 1.5; 2" placeholder="Ex: 1; 2; 5.5">
                     </div>
                     <div class="input-group">
                         <label for="input_d0">Chute inicial (d0):</label>
@@ -43,6 +43,7 @@
                     <table id="tabela_resultados">
                         <thead>
                             <tr>
+                                <th>Valor de a</th>
                                 <th>Método</th>
                                 <th>Raiz (d)</th>
                                 <th>Iterações</th>
@@ -50,28 +51,7 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Newton-Raphson</td>
-                                <td id="nr_raiz">...</td>
-                                <td id="nr_iter">...</td>
-                                <td id="nr_erro">...</td>
-                                <td id="nr_status">...</td>
-                            </tr>
-                            <tr>
-                                <td>Newton Modificado</td>
-                                <td id="nm_raiz">...</td>
-                                <td id="nm_iter">...</td>
-                                <td id="nm_erro">...</td>
-                                <td id="nm_status">...</td>
-                            </tr>
-                            <tr>
-                                <td>Secante (d1 = d0 + 0.1)</td>
-                                <td id="sec_raiz">...</td>
-                                <td id="sec_iter">...</td>
-                                <td id="sec_erro">...</td>
-                                <td id="sec_status">...</td>
-                            </tr>
+                        <tbody id="corpo_tabela">
                         </tbody>
                     </table>
                 </div>
