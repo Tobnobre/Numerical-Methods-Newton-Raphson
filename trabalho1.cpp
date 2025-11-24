@@ -99,7 +99,7 @@ ResultadoMetodo newtonModificado(double a, double d_inicial, double precisao, do
         }
         d_anterior = d_atual;
     }
-    return {d_atual, passos, erro_atual, false, "Excedeu iteracoes"};
+    return {d_atual, passos, erro_atual, false, "Excedeu o maximo de iteracoes"};
 }
 
 ResultadoMetodo secante(double a, double d0, double d1, double precisao, int maxIter) {
@@ -137,7 +137,7 @@ ResultadoMetodo secante(double a, double d0, double d1, double precisao, int max
         dNmenosUm = dN;
         dN = dNmaisUm;
     }
-    return {dNmaisUm, passos, erro_atual, false, "Excedeu iteracoes"};
+    return {dNmaisUm, passos, erro_atual, false, "Excedeu o maximo de iteracoes"};
 }
 
 // Começa o processo de exibição do resultado
