@@ -14,14 +14,15 @@ Este projeto implementa métodos numéricos em C++ e os executa na web com WebAs
     ```
 
 3.  **Compile o C++:**
-    (Navegue para a pasta raiz do projeto)
+    (Navegue para a pasta do projeto)
     ```bash
-    emcc trabalho1.cpp -o trabalho1.js -s WASM=1 -s "EXPORTED_RUNTIME_METHODS=[\"cwrap\"]" -s INVOKE_RUN=0
+    emcc src/main.cpp src/math_funcs.cpp src/newton_raphson.cpp src/newton_modificado.cpp src/secante.cpp -I include -o public/trabalho1.js -s EXPORTED_RUNTIME_METHODS=['cwrap'] -s EXPORTED_FUNCTIONS=['_calcularTodosMetodos']
     ```
 
 4.  **Inicie o Servidor Local:**
+    (Navegue até a pasta *src/* dentro do projeto)
     ```bash
     python -m http.server
     ```
 
-5.  Acesse `http://localhost:8000`.
+5.  **Acesse:** `http://localhost:8000`.
