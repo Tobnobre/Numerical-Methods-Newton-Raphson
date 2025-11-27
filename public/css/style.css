@@ -78,30 +78,32 @@ main {
 }
 
 .input-form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
+    align-items: start;
 }
 
 .input-group {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .input-group label {
     font-weight: 600;
     color: var(--text-color);
     font-size: 0.95rem;
-    min-width: 140px;
-    flex-shrink: 0;
 }
 
 .input-group input {
+    width: 100%;
     padding: 0.75rem;
     border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -111,7 +113,37 @@ main {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
+.input_a_dinamico {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input_a_dinamico:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .btn-primary {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 1rem;
     background: var(--primary-color);
     color: white;
     border: none;
@@ -121,7 +153,6 @@ main {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.1s;
-    justify-self: center;
     width: fit-content;
 }
 
@@ -182,6 +213,10 @@ tbody tr:hover {
     background: #334155;
 }
 
+tbody tr:nth-child(3n) td {
+    border-bottom: 3px solid var(--primary-color) !important;
+}
+
 td:nth-child(2), td:nth-child(3), td:nth-child(4) {
     font-family: 'Courier New', monospace;
     text-align: center;
@@ -200,6 +235,20 @@ footer {
     padding: 1.5rem 0;
     color: var(--secondary-color);
     font-size: 0.9rem;
+}
+
+.a-values-section {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
 }
 
 /* Responsive Design */
@@ -223,4 +272,12 @@ footer {
     .input-section, .results-section {
         padding: 2.5rem;
     }
+}
+
+.a-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
 }
