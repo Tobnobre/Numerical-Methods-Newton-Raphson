@@ -264,11 +264,6 @@ footer {
 }
 
 @media (min-width: 1024px) {
-    main {
-        grid-template-columns: 1fr 2fr;
-        gap: 3rem;
-    }
-
     .input-section, .results-section {
         padding: 2.5rem;
     }
