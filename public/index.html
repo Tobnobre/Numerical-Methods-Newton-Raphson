@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho 1 - Métodos Numéricos</title>
-    <link rel="stylesheet" href="css/style.css"> <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Calculadora de Métodos Numéricos</h1>
+            <p>Implementação em C++ compilada para WebAssembly</p>
         </header>
 
         <main>
@@ -17,14 +18,13 @@
                 <h2>Parâmetros de Entrada</h2>
                 <form class="input-form">
                     <div class="input-group">
-                        <label for="input_qtd_a">Nº de valores de 'a':</label>
-                        <input type="number" id="input_qtd_a" value="1" min="1" step="1" placeholder="ex: 5">
+                        <label for="input_n">Quantidade de valores 'a' (máx 10):</label>
+                        <input type="number" id="input_n" value="3" min="1" max="10">
                     </div>
-
-                    <div class="input-group">
-                        <label>Valores de 'a':</label>
-                        <div id="container_inputs_a" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px;">
-                            </div>
+                    <div class="a-values-section">
+                        <label class="section-label">Valores de a:</label>
+                        <div id="a_values_container" class="a-values-grid">
+                        </div>
                     </div>
                     <div class="input-group">
                         <label for="input_d0">Chute inicial (d0):</label>
@@ -64,6 +64,7 @@
         </main>
     </div>
 
-    <script src="trabalho1.js"></script> <script src="script.js"></script>
+    <script src="trabalho1.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
