@@ -13,14 +13,16 @@ Module.onRuntimeInitialized = () => {
         console.log('Gerando inputs para n =', n);
         aValuesContainer.innerHTML = '';
 
-        if (n > 0 && n <= 10) {
+        if (n > 0) { 
             for (let i = 0; i < n; i++) {
                 const input = document.createElement('input');
                 input.type = 'number';
                 input.step = 'any';
                 input.className = 'input_a_dinamico';
                 input.placeholder = `a[${i+1}]`;
-                input.value = 1 + i * 1;
+                
+                input.value = 1 + i * 1; 
+                
                 aValuesContainer.appendChild(input);
             }
         }

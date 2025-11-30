@@ -20,7 +20,7 @@ Este projeto implementa métodos numéricos em C++ e os executa na web com WebAs
     ```
 
 4.  **Inicie o Servidor Local:**
-    (Navegue até a pasta *src/* dentro do projeto)
+    (Navegue até a pasta *public/* dentro do projeto)
     ```bash
     python -m http.server
     ```
