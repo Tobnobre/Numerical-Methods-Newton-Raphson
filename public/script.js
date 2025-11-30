@@ -64,7 +64,7 @@ Module.onRuntimeInitialized = () => {
         let displayRaiz = dados.sucesso ? dados.raiz.toFixed(8) : "-";
         let displayIter = dados.sucesso ? dados.iter : "-";
         let displayErro = "-";
-        let classe = dados.sucesso ? "" : "erro";
+        let classe = dados.sucesso ? "sucesso" : "erro";
         let msg = dados.sucesso ? "Sucesso" : dados.msg;
 
         if (dados.sucesso) {

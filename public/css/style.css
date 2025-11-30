@@ -94,6 +94,7 @@ main {
     font-weight: 600;
     color: var(--text-color);
     font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 .input-group input {
@@ -217,7 +218,12 @@ tbody tr:nth-child(3n) td {
     border-bottom: 3px solid var(--primary-color) !important;
 }
 
-td:nth-child(2), td:nth-child(3), td:nth-child(4) {
+td:nth-child(2) {
+    font-weight: bold;
+    text-align: center;
+}
+
+td:nth-child(3), td:nth-child(4) {
     font-family: 'Courier New', monospace;
     text-align: center;
 }
@@ -225,6 +231,11 @@ td:nth-child(2), td:nth-child(3), td:nth-child(4) {
 /* Status Styles */
 .erro {
     color: #dc2626;
+    font-weight: 600;
+}
+
+.sucesso {
+    color: #22c55e;
     font-weight: 600;
 }
 
